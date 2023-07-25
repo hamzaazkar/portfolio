@@ -4,8 +4,8 @@ function App() {
 
 	return (
 		<>
-			<progress value={null}></progress>
-			<h1>Portfolio is Under Construction...</h1>
+			<progress ></progress>
+			<h2>Portfolio is Under Construction...</h2>
 		</>
 	);
 }
