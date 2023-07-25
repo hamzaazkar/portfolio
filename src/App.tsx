@@ -1,13 +1,22 @@
-import './App.css';
+import {
+	createBrowserRouter,
+	RouterProvider,
+} from "react-router-dom";
 
-function App() {
+import "./index.css";
+import { Home } from './components/home';
 
-	return (
-		<>
-			<progress ></progress>
-			<h2>Portfolio is Under Construction...</h2>
-		</>
-	);
+const router = createBrowserRouter([
+	{
+		path: "/",
+		element: <Home />,
+	},
+]);
+
+export default function App() {
+	return <RouterProvider router={router} fallbackElement={<p>Loading...</p>} />;
 }
 
-export default App;
+if (import.meta.hot) {
+	import.meta.hot.dispose(() => router.dispose());
+}
