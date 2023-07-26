@@ -1,7 +1,11 @@
-import React from 'react';
+import { Stack } from '@mui/material';
+
+import { Header } from '../header';
 
 export function Home() {
 	return (
-		<div>home</div>
+		<Stack direction='column'>
+			<Header />
+		</Stack>
 	);
 }
