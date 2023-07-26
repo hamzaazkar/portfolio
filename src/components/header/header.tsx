@@ -29,7 +29,7 @@ export function Header() {
 							variant='h4'
 							fontWeight='900'
 						>
-							<span style={{ color: 'green' }}>.</span>
+							<span style={{ color: '#abf129' }}>.</span>
 							Hamza Azkar
 						</Typography>
 					</Grid>
