@@ -62,9 +62,13 @@ export function HeroBanner() {
 						<Button
 							variant='outlined'
 							color='inherit'
-							sx={{ width: 300, height: 60, borderRadius: 10 }}
+							sx={{ p: 2, borderRadius: 10 }}
 						>
-							<Typography fontSize={30} fontWeight={600}>
+							<Typography
+								variant='h5'
+								fontWeight={600}
+								noWrap
+							>
 								CONTACT ME
 							</Typography>
 						</Button>
@@ -72,9 +76,13 @@ export function HeroBanner() {
 						<Button
 							variant='text'
 							color='inherit'
-							sx={{ width: 300, height: 50, borderRadius: 5 }}
+							sx={{ p: 2 }}
 						>
-							<Typography fontSize={30} fontWeight={600}>
+							<Typography
+								variant='h5'
+								fontWeight={600}
+								noWrap
+							>
 								DOWNLOAD CV <span><OutboundRounded fontSize='medium' sx={{ color: '#abf129' }} /></span>
 							</Typography>
 						</Button>
