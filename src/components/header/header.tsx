@@ -17,24 +17,30 @@ export function Header() {
 			<Container
 				maxWidth='xl'
 			>
-				<Grid
-					container
+				<Stack
+					direction={{ xs: 'column', sm: 'row' }}
+					spacing={{ xs: 1, sm: 2, md: 3 }}
 					justifyContent='space-between'
+					alignItems='flex-start'
 					sx={{
 						padding: 1.3,
 					}}
 				>
-					<Grid item>
-						<Typography
-							variant='h4'
-							fontWeight='900'
-						>
-							<span style={{ color: '#abf129' }}>.</span>
-							Hamza Azkar
-						</Typography>
-					</Grid>
+					<Typography
+						variant='h4'
+						fontWeight='900'
+						noWrap
+					>
+						<span style={{ color: '#abf129' }}>.</span>
+						Hamza Azkar
+					</Typography>
 
-					<Stack direction='row' justifyContent='space-between' spacing={3}>
+					<Stack
+						direction={{ xs: 'column', sm: 'row' }}
+						spacing={{ xs: 1, sm: 2, md: 3 }}
+						justifyContent='space-between'
+						alignItems='flex-start'
+					>
 						<Typography
 							variant='h5'
 							fontWeight='600'
@@ -45,11 +51,12 @@ export function Header() {
 						<Typography
 							variant='h5'
 							fontWeight='600'
+							sx={{ mt: 0 }}
 						>
 							+92(0304)7860564
 						</Typography>
 					</Stack>
-				</Grid>
+				</Stack>
 			</Container>
 		</Grid>
 
