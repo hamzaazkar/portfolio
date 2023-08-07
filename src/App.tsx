@@ -1,13 +1,31 @@
-import './App.css';
+import {
+	createBrowserRouter,
+	RouterProvider,
+} from "react-router-dom";
+import { ThemeProvider } from '@mui/material';
+import { Home } from './components/home';
 
-function App() {
+import getTheme from './theme/theme';
 
+
+const router = createBrowserRouter([
+	{
+		path: "/",
+		element: <Home />,
+	},
+]);
+
+export default function App() {
 	return (
-		<>
-			<progress ></progress>
-			<h2>Portfolio is Under Construction...</h2>
-		</>
+		<ThemeProvider theme={getTheme()}>
+			<RouterProvider
+				router={router}
+				fallbackElement={<p>Loading...</p>}
+			/>
+		</ThemeProvider>
 	);
 }
 
-export default App;
+if (import.meta.hot) {
+	import.meta.hot.dispose(() => router.dispose());
+}
