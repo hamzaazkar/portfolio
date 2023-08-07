@@ -13,6 +13,8 @@ import {
 	OutboundRounded,
 } from '@mui/icons-material';
 
+import cv from './cv-hamza.pdf';
+
 export function HeroBanner() {
 	return (
 		<Container maxWidth='xl'>
@@ -59,33 +61,45 @@ export function HeroBanner() {
 					</Typography>
 
 					<Stack direction='row' sx={{ marginTop: 5 }} spacing={3}>
-						<Button
-							variant='outlined'
-							color='inherit'
-							sx={{ p: 2, borderRadius: 10 }}
+						<a
+							href='mailto:hamzaazkar@gmail.com'
+							style={{ color: 'white' }}
 						>
-							<Typography
-								variant='h5'
-								fontWeight={600}
-								noWrap
+							<Button
+								variant='outlined'
+								color='inherit'
+								sx={{ p: 2, borderRadius: 10 }}
 							>
-								CONTACT ME
-							</Typography>
-						</Button>
+								<Typography
+									variant='h5'
+									fontWeight={600}
+									noWrap
+								>
+									CONTACT ME
+								</Typography>
+							</Button>
+						</a>
 
-						<Button
-							variant='text'
-							color='inherit'
-							sx={{ p: 2 }}
+						<a
+							href={cv}
+							download='cv-hamza'
+							target='_blank'
+							style={{ color: 'white' }}
 						>
-							<Typography
-								variant='h5'
-								fontWeight={600}
-								noWrap
+							<Button
+								variant='text'
+								color='inherit'
+								sx={{ p: 2 }}
 							>
-								DOWNLOAD CV <span><OutboundRounded fontSize='medium' sx={{ color: '#abf129' }} /></span>
-							</Typography>
-						</Button>
+								<Typography
+									variant='h5'
+									fontWeight={600}
+									noWrap
+								>
+									DOWNLOAD CV <span><OutboundRounded fontSize='medium' sx={{ color: '#abf129' }} /></span>
+								</Typography>
+							</Button>
+						</a>
 					</Stack>
 				</Stack>
 
