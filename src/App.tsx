@@ -10,6 +10,10 @@ import getTheme from './theme/theme';
 
 const router = createBrowserRouter([
 	{
+		path: "/porfolio",
+		element: <Home />,
+	},
+	{
 		path: "/",
 		element: <Home />,
 	},
