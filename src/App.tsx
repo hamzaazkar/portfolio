@@ -1,6 +1,7 @@
 import {
 	createBrowserRouter,
 	RouterProvider,
+	HashRouter,
 } from "react-router-dom";
 import { ThemeProvider } from '@mui/material';
 import { Home } from './components/home';
@@ -10,7 +11,7 @@ import getTheme from './theme/theme';
 
 const router = createBrowserRouter([
 	{
-		path: "/porfolio/",
+		path: "/porfolio",
 		element: <Home />,
 	},
 	{
@@ -22,10 +23,12 @@ const router = createBrowserRouter([
 export default function App() {
 	return (
 		<ThemeProvider theme={getTheme()}>
-			<RouterProvider
-				router={router}
-				fallbackElement={<p>Loading...</p>}
-			/>
+			<HashRouter>
+				<RouterProvider
+					router={router}
+					fallbackElement={<p>Loading...</p>}
+				/>
+			</HashRouter>
 		</ThemeProvider>
 	);
 }
