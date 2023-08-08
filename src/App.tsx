@@ -26,6 +26,6 @@ export default function App() {
 	);
 }
 
-if (import.meta.hot) {
-	import.meta.hot.dispose(() => router.dispose());
-}
+// if (import.meta.hot) {
+// 	import.meta.hot.dispose(() => router.dispose());
+// }
