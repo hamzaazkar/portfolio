@@ -1,7 +1,7 @@
 import {
-	createBrowserRouter,
+	// createBrowserRouter,
 	RouterProvider,
-	HashRouter,
+	createHashRouter
 } from "react-router-dom";
 import { ThemeProvider } from '@mui/material';
 import { Home } from './components/home';
@@ -9,11 +9,11 @@ import { Home } from './components/home';
 import getTheme from './theme/theme';
 
 
-const router = createBrowserRouter([
-	{
-		path: "/porfolio",
-		element: <Home />,
-	},
+const router = createHashRouter([
+	// {
+	// 	path: "/porfolio",
+	// 	element: <Home />,
+	// },
 	{
 		path: "/",
 		element: <Home />,
@@ -23,12 +23,10 @@ const router = createBrowserRouter([
 export default function App() {
 	return (
 		<ThemeProvider theme={getTheme()}>
-			<HashRouter>
-				<RouterProvider
-					router={router}
-					fallbackElement={<p>Loading...</p>}
-				/>
-			</HashRouter>
+			<RouterProvider
+				router={router}
+				fallbackElement={<p>Loading...</p>}
+			/>
 		</ThemeProvider>
 	);
 }
