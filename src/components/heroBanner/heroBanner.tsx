@@ -1,17 +1,17 @@
 import {
-	Container,
-	Typography,
-	Stack,
-	Button
-} from '@mui/material';
-import Typewriter from 'typewriter-effect';
-import CircleIcon from '@mui/icons-material/Circle';
-import CancelIcon from '@mui/icons-material/Cancel';
-import {
 	ArrowBackIosNewOutlined,
 	ArrowForwardIosOutlined,
 	OutboundRounded,
 } from '@mui/icons-material';
+import CancelIcon from '@mui/icons-material/Cancel';
+import CircleIcon from '@mui/icons-material/Circle';
+import {
+	Button,
+	Container,
+	Stack,
+	Typography
+} from '@mui/material';
+import Typewriter from 'typewriter-effect';
 
 import cv from './cv-hamza.pdf';
 
@@ -60,7 +60,7 @@ export function HeroBanner() {
 						</span>
 					</Typography>
 
-					<Stack direction='row' sx={{ marginTop: 5 }} spacing={3}>
+					<Stack direction={{ xs: 'column', sm: 'row' }} sx={{ marginTop: 5 }} spacing={3} alignItems='flex-start' justifyContent='flex-start'>
 						<a
 							href='mailto:hamzaazkar@gmail.com'
 							style={{ color: 'white' }}
@@ -89,7 +89,7 @@ export function HeroBanner() {
 							<Button
 								variant='text'
 								color='inherit'
-								sx={{ p: 2 }}
+								sx={{ m: 2 }}
 							>
 								<Typography
 									variant='h5'
