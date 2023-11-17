@@ -10,7 +10,7 @@ export const MovingTextBar = () => {
 	const scrolling = useSpring({
 		from: { transform: "translate(100%,0)" },
 		to: { transform: "translate(-50%,0)" },
-		config: { duration: 20000 },
+		config: { duration: 15000 },
 		reset: true,
 		// reverse: key % 2 == 0,
 		onRest: () => {
@@ -20,7 +20,7 @@ export const MovingTextBar = () => {
 
 	return (
 		<div key={key} style={{ borderTop: '1px solid white', borderBottom: '1px solid white', margin: '-8px', padding: '10px' }}>
-			<animated.div style={scrolling}>
+			<animated.div style={{ whiteSpace: 'nowrap', ...scrolling }}>
 				<Typography
 					fontSize={26}
 				>
@@ -38,6 +38,30 @@ export const MovingTextBar = () => {
 					<span style={{ color: '#abf129', marginLeft: '5px', fontStyle: 'italic' }}>
 						Amazing
 					</span>
+
+
+
+					<CircleIcon
+						fontSize='medium'
+						sx={{ color: '#abf129', marginLeft: '20px', marginRight: '20px' }}
+					/>
+
+					Get In Touch
+					<CircleIcon
+						fontSize='medium'
+						sx={{ color: '#abf129', marginLeft: '20px', marginRight: '20px' }}
+					/>
+					Lets Create Something
+					<span style={{ color: '#abf129', marginLeft: '5px', fontStyle: 'italic' }}>
+						Amazing
+					</span>
+
+					<CircleIcon
+						fontSize='medium'
+						sx={{ color: '#abf129', marginLeft: '20px', marginRight: '20px' }}
+					/>
+
+
 
 					<CircleIcon
 						fontSize='medium'
