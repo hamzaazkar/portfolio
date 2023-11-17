@@ -1,19 +1,14 @@
+import { ThemeProvider } from '@mui/material';
 import {
-	// createBrowserRouter,
 	RouterProvider,
 	createHashRouter
 } from "react-router-dom";
-import { ThemeProvider } from '@mui/material';
 import { Home } from './components/home';
 
 import getTheme from './theme/theme';
 
 
 const router = createHashRouter([
-	// {
-	// 	path: "/porfolio",
-	// 	element: <Home />,
-	// },
 	{
 		path: "/",
 		element: <Home />,
@@ -30,7 +25,3 @@ export default function App() {
 		</ThemeProvider>
 	);
 }
-
-// if (import.meta.hot) {
-// 	import.meta.hot.dispose(() => router.dispose());
-// }

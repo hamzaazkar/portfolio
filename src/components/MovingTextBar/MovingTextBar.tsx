@@ -19,8 +19,8 @@ export const MovingTextBar = () => {
 	});
 
 	return (
-		<div key={key} style={{ borderTop: '1px solid white', borderBottom: '1px solid white', margin: '-8px', padding: '10px' }}>
-			<animated.div style={{ whiteSpace: 'nowrap', ...scrolling }}>
+		<div key={key} style={{ borderTop: '1px solid white', borderBottom: '1px solid white', margin: '-8px', padding: '10px', overflow: 'hidden' }}>
+			<animated.div style={{ whiteSpace: 'nowrap', overflow: 'hidden', ...scrolling }}>
 				<Typography
 					fontSize={26}
 				>
