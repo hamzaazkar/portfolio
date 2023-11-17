@@ -1,8 +1,9 @@
 import { Stack } from '@mui/material';
 
+import { MovingTextBar } from '../MovingTextBar';
+import { About } from '../about';
 import { Header } from '../header';
 import { HeroBanner } from '../heroBanner';
-import { MovingTextBar } from '../MovingTextBar';
 
 export function Home() {
 	return (
@@ -10,6 +11,7 @@ export function Home() {
 			<Header />
 			<HeroBanner />
 			<MovingTextBar />
+			<About />
 		</Stack>
 	);
 }

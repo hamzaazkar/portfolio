@@ -18,15 +18,15 @@ import cv from './cv-hamza.pdf';
 export function HeroBanner() {
 	return (
 		<Container maxWidth='xl'>
-			<Stack direction='row' justifyContent='space-between' sx={{ height: 400, marginTop: 18, marginBottom: 16 }}>
+			<Stack direction='row' justifyContent='space-between' sx={{ height: 550, marginTop: 16, marginBottom: 16 }}>
 				<Stack direction='column' justifyContent='space-evenly'>
-					<Typography variant='h1' fontWeight='900'>FRONTEND</Typography>
+					<Typography variant='h1' fontWeight='800' fontSize={120}>FRONTEND</Typography>
 					<Stack direction='row' alignItems='center' spacing={2}>
 						<Button variant='outlined' color='inherit' sx={{ width: 100, height: 50, borderRadius: 5 }}>
 							<ArrowBackIosNewOutlined color='inherit' />
 							<ArrowForwardIosOutlined color='inherit' />
 						</Button>
-						<Typography variant='h1' fontWeight='900' >
+						<Typography variant='h1' fontSize={120} fontWeight='800' >
 							<Typewriter
 								options={{
 									strings: ['DEVELOPER', 'ENGINEER'],
@@ -38,7 +38,8 @@ export function HeroBanner() {
 					</Stack>
 					<Typography
 						variant='h1'
-						fontWeight='900'
+						fontSize={120}
+						fontWeight='800'
 					>
 						& DESIGNER
 						<span>

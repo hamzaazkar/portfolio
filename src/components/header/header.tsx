@@ -1,8 +1,8 @@
 import {
 	Container,
 	Grid,
-	Typography,
-	Stack
+	Stack,
+	Typography
 } from '@mui/material';
 
 export function Header() {
