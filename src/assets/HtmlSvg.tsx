@@ -1,4 +1,4 @@
-export const HtmlSvg = (props) => (
+export const HtmlSvg = () => (
 	<svg
 		fill="#ffffff"
 		xmlns="http://www.w3.org/2000/svg"
@@ -8,7 +8,6 @@ export const HtmlSvg = (props) => (
 		viewBox="0 0 512 512"
 		enableBackground="new 0 0 512 512"
 		xmlSpace="preserve"
-		{...props}
 	>
 		<g id="SVGRepo_bgCarrier" strokeWidth={0} />
 		<g

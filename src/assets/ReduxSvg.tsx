@@ -1,4 +1,4 @@
-export const ReduxSvg = (props) => (
+export const ReduxSvg = () => (
 	<svg
 		fill="#ffffff"
 		width="80px"
@@ -6,7 +6,6 @@ export const ReduxSvg = (props) => (
 		viewBox="0 0 24 24"
 		role="img"
 		xmlns="http://www.w3.org/2000/svg"
-		{...props}
 	>
 		<g id="SVGRepo_bgCarrier" strokeWidth={0} />
 		<g

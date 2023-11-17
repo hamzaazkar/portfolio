@@ -1,4 +1,4 @@
-export const MySqlSvg = (props) => (
+export const MySqlSvg = () => (
 	<svg
 		fill="#ffffff"
 		height="80px"
@@ -8,7 +8,6 @@ export const MySqlSvg = (props) => (
 		xmlnsXlink="http://www.w3.org/1999/xlink"
 		viewBox="0 0 490.667 490.667"
 		xmlSpace="preserve"
-		{...props}
 	>
 		<g id="SVGRepo_bgCarrier" strokeWidth={0} />
 		<g
