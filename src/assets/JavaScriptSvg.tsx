@@ -1,5 +1,5 @@
 
-export const JavaScriptSvg = (props: unknown) => (
+export const JavaScriptSvg = () => (
 	<svg
 		fill="#ffffff"
 		width="80px"
@@ -8,7 +8,6 @@ export const JavaScriptSvg = (props: unknown) => (
 		role="img"
 		xmlns="http://www.w3.org/2000/svg"
 		stroke="#ffffff"
-		{...props}
 	>
 		<g id="SVGRepo_bgCarrier" strokeWidth={0} />
 		<g
