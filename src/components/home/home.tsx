@@ -4,6 +4,7 @@ import { MovingTextBar } from '../MovingTextBar';
 import { About } from '../about';
 import { Header } from '../header';
 import { HeroBanner } from '../heroBanner';
+import { Skills } from '../skills';
 
 export function Home() {
 	return (
@@ -12,6 +13,7 @@ export function Home() {
 			<HeroBanner />
 			<MovingTextBar />
 			<About />
+			<Skills />
 		</Stack>
 	);
 }
