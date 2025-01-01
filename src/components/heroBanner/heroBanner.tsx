@@ -18,7 +18,7 @@ import cv from './cv-hamza.pdf';
 export function HeroBanner() {
 	return (
 		<Container maxWidth='xl'>
-			<Stack direction='row' justifyContent='space-between' sx={{ height: 550, marginTop: 16, marginBottom: 16 }}>
+			<Stack direction='row' justifyContent='space-between' sx={{ height: 550, marginTop: 12, marginBottom: 12 }}>
 				<Stack direction='column' justifyContent='space-evenly'>
 					<Typography variant='h1' fontWeight='800' fontSize={120}>FRONTEND</Typography>
 					<Stack direction='row' alignItems='center' spacing={2}>
