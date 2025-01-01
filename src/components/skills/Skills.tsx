@@ -1,5 +1,5 @@
 import CircleIcon from '@mui/icons-material/Circle';
-import { Button, Container, Stack, Typography } from '@mui/material';
+import { Box, Button, Container, Stack, Typography } from '@mui/material';
 
 import { FigmaSvg } from '../../assets/FigmaSvg';
 import { HtmlSvg } from '../../assets/HtmlSvg';
@@ -82,7 +82,7 @@ export const Skills = () => {
 							sx={{ color: '#abf129', marginLeft: 1, marginRight: 1 }}
 						/>
 					</span>
-					basic backend
+					backend
 				</Typography>
 			</Container>
 
@@ -94,16 +94,96 @@ export const Skills = () => {
 				sx={{ margin: 8, flexWrap: 'wrap', justifyContent: 'space-between' }}
 			>
 
-				<HtmlSvg />
-				<JavaScriptSvg />
-				<ReactSvg />
-				<NextSvg />
-				<MySqlSvg />
-				<FigmaSvg />
-				<ReduxSvg />
-				<MuiSvg />
-				<TypescriptSvg />
-
+				<Box
+					sx={{
+						transition: 'transform 0.3s ease-in-out',
+						'&:hover': {
+							transform: 'scale(1.3)'
+						},
+					}}
+				>
+					<HtmlSvg />
+				</Box>
+				<Box
+					sx={{
+						transition: 'transform 0.3s ease-in-out',
+						'&:hover': {
+							transform: 'scale(1.3)'
+						},
+					}}
+				>
+					<JavaScriptSvg />
+				</Box>
+				<Box
+					sx={{
+						transition: 'transform 0.3s ease-in-out',
+						'&:hover': {
+							transform: 'scale(1.3)'
+						},
+					}}
+				>
+					<ReactSvg />
+				</Box>
+				<Box
+					sx={{
+						transition: 'transform 0.3s ease-in-out',
+						'&:hover': {
+							transform: 'scale(1.3)'
+						},
+					}}
+				>
+					<NextSvg />
+				</Box>
+				<Box
+					sx={{
+						transition: 'transform 0.3s ease-in-out',
+						'&:hover': {
+							transform: 'scale(1.3)'
+						},
+					}}
+				>
+					<MySqlSvg />
+				</Box>
+				<Box
+					sx={{
+						transition: 'transform 0.3s ease-in-out',
+						'&:hover': {
+							transform: 'scale(1.3)'
+						},
+					}}
+				>
+					<FigmaSvg />
+				</Box>
+				<Box
+					sx={{
+						transition: 'transform 0.3s ease-in-out',
+						'&:hover': {
+							transform: 'scale(1.3)'
+						},
+					}}
+				>
+					<ReduxSvg />
+				</Box>
+				<Box
+					sx={{
+						transition: 'transform 0.3s ease-in-out',
+						'&:hover': {
+							transform: 'scale(1.3)'
+						},
+					}}
+				>
+					<MuiSvg />
+				</Box>
+				<Box
+					sx={{
+						transition: 'transform 0.3s ease-in-out',
+						'&:hover': {
+							transform: 'scale(1.3)',
+						},
+					}}
+				>
+					<TypescriptSvg />
+				</Box>
 			</Stack>
 		</>
 	);
