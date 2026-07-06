@@ -1,22 +1,33 @@
 import { CopyrightRounded, GitHub, LinkedIn } from '@mui/icons-material';
 import { Button, ButtonBase, Stack, Typography } from '@mui/material';
+import { motion } from 'framer-motion';
+import { SOCIAL_LINKS } from '../../constants/links';
+
+const MotionButton = motion(Button);
+const MotionButtonBase = motion(ButtonBase);
 
 export const Footer = () => {
 	return (
 		<Stack
+			id='contact'
 			gap={0}
 			sx={{
-				// width: '100%',
 				margin: 0,
 				padding: 10,
 				borderTopLeftRadius: '150px',
 				borderTopRightRadius: '150px',
-				backgroundColor: 'black'
+				backgroundColor: 'background.paper',
 			}}
 		>
-
-			<Typography textAlign='center' variant='h1' fontWeight={900}>Let's</Typography>
-			<Typography textAlign='center' variant='h1' fontWeight={900}>Connect</Typography>
+			<motion.div
+				initial={{ opacity: 0, y: 30 }}
+				whileInView={{ opacity: 1, y: 0 }}
+				viewport={{ once: true, amount: 0.3 }}
+				transition={{ duration: 0.5 }}
+			>
+				<Typography textAlign='center' variant='h1' fontWeight={900}>Let's</Typography>
+				<Typography textAlign='center' variant='h1' fontWeight={900}>Connect</Typography>
+			</motion.div>
 
 			<Stack
 				direction={{ xs: 'column', sm: 'row' }}
@@ -27,32 +38,35 @@ export const Footer = () => {
 			>
 				<a
 					target='_blank'
+					rel='noreferrer'
 					style={{ color: 'white' }}
-					href='https://wa.me/qr/HXLDBPOQWSNHF1'
+					href={SOCIAL_LINKS.whatsapp}
 				>
-					<Button
+					<MotionButton
 						variant='outlined'
 						color='inherit'
-						sx={{ color: 'white', fontSize: '22px', p: 2, borderRadius: 10, height: '50px' }}
+						whileHover={{ scale: 1.05 }}
+						whileTap={{ scale: 0.97 }}
+						sx={{ color: 'white', fontSize: '22px', p: 2, height: '50px' }}
 					>
 						Whatsapp me
-					</Button>
+					</MotionButton>
 				</a>
-
 
 				<a
-					href='mailto:hamzaazkar@gmail.com'
+					href={SOCIAL_LINKS.email}
 					style={{ color: 'white' }}
 				>
-					<Button
+					<MotionButton
 						variant='outlined'
 						color='inherit'
-						sx={{ color: 'white', fontSize: '22px', p: 2, borderRadius: 10, height: '50px' }}
+						whileHover={{ scale: 1.05 }}
+						whileTap={{ scale: 0.97 }}
+						sx={{ color: 'white', fontSize: '22px', p: 2, height: '50px' }}
 					>
 						Mail me
-					</Button>
+					</MotionButton>
 				</a>
-
 			</Stack>
 
 			<Stack
@@ -62,12 +76,15 @@ export const Footer = () => {
 				gap={2}
 			>
 				<a
-					href='www.linkedin.com/in/muhammad-hamza-79803311b'
+					href={SOCIAL_LINKS.linkedin}
 					target='_blank'
+					rel='noreferrer'
 					style={{ color: 'white' }}
 				>
-					<ButtonBase
+					<MotionButtonBase
 						color='inherit'
+						whileHover={{ scale: 1.05 }}
+						whileTap={{ scale: 0.97 }}
 						sx={{
 							display: 'flex',
 							justifyContent: 'space-between',
@@ -77,7 +94,8 @@ export const Footer = () => {
 							p: 0.5,
 							borderTop: 'solid 1px grey',
 							'&:hover': {
-								borderTop: 'solid 1px #abf129',
+								borderTop: 'solid 1px',
+								borderTopColor: 'primary.main',
 							},
 						}}
 					>
@@ -87,16 +105,19 @@ export const Footer = () => {
 
 						<LinkedIn />
 
-					</ButtonBase>
+					</MotionButtonBase>
 				</a>
 
 				<a
-					href='https://github.com/hamzaazkar'
+					href={SOCIAL_LINKS.github}
 					target='_blank'
+					rel='noreferrer'
 					style={{ color: 'white' }}
 				>
-					<ButtonBase
+					<MotionButtonBase
 						color='inherit'
+						whileHover={{ scale: 1.05 }}
+						whileTap={{ scale: 0.97 }}
 						sx={{
 							display: 'flex',
 							justifyContent: 'space-between',
@@ -106,7 +127,8 @@ export const Footer = () => {
 							p: 0.5,
 							borderTop: 'solid 1px grey',
 							'&:hover': {
-								borderTop: 'solid 1px #abf129',
+								borderTop: 'solid 1px',
+								borderTopColor: 'primary.main',
 							},
 						}}
 					>
@@ -116,38 +138,8 @@ export const Footer = () => {
 
 						<GitHub />
 
-					</ButtonBase>
+					</MotionButtonBase>
 				</a>
-
-
-				{/* <a
-					href='mailto:hamzaazkar@gmail.com'
-					target='_blank'
-					style={{ color: 'white' }}
-				>
-					<ButtonBase
-						color='inherit'
-						sx={{
-							display: 'flex',
-							justifyContent: 'space-between',
-							width: '200px',
-							color: 'white',
-							fontSize: '24px',
-							p: 0.5,
-							borderTop: 'solid 1px grey',
-							'&:hover': {
-								borderTop: 'solid 1px #abf129',
-							},
-						}}
-					>
-						<Typography>
-							Linkedin
-						</Typography>
-
-						<LinkedIn />
-
-					</ButtonBase>
-				</a> */}
 			</Stack>
 
 			<Stack
@@ -169,8 +161,6 @@ export const Footer = () => {
 					Developed and designed by <b>.Hamza</b>
 				</Typography>
 			</Stack>
-
-			{/* <MovingTextBar /> */}
 		</Stack>
 	);
 };

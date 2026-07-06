@@ -1,4 +1,4 @@
-import { ThemeProvider } from '@mui/material';
+import { CssBaseline, ThemeProvider } from '@mui/material';
 import {
 	RouterProvider,
 	createHashRouter
@@ -18,6 +18,7 @@ const router = createHashRouter([
 export default function App() {
 	return (
 		<ThemeProvider theme={getTheme()}>
+			<CssBaseline />
 			<RouterProvider
 				router={router}
 				fallbackElement={<p>Loading...</p>}

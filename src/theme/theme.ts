@@ -1,10 +1,49 @@
 import { createTheme, responsiveFontSizes } from '@mui/material';
+import { tokens } from './tokens';
 
 const getTheme = () => {
-	let theme = createTheme();
-	theme = responsiveFontSizes(theme);
+	let theme = createTheme({
+		palette: {
+			mode: 'dark',
+			primary: {
+				main: tokens.colors.accent,
+				dark: tokens.colors.accentDark,
+				contrastText: '#000000',
+			},
+			background: {
+				default: tokens.colors.background,
+				paper: tokens.colors.backgroundPaper,
+			},
+			text: {
+				primary: tokens.colors.textPrimary,
+				secondary: tokens.colors.textSecondary,
+			},
+		},
+		shape: {
+			borderRadius: tokens.radius.md,
+		},
+		typography: {
+			fontFamily: tokens.fontFamily,
+			h1: {
+				fontSize: '35px',
+			},
+		},
+		components: {
+			MuiButton: {
+				defaultProps: {
+					disableElevation: true,
+				},
+				styleOverrides: {
+					root: {
+						borderRadius: tokens.radius.pill,
+					},
+				},
+			},
+		},
+	});
 
 	theme.typography.h1 = {
+		...theme.typography.h1,
 		[theme.breakpoints.down('sm')]: {
 			fontSize: '35px',
 		},
@@ -16,22 +55,9 @@ const getTheme = () => {
 		},
 	};
 
-	// theme.typography.h4 = {
-	// 	[theme.breakpoints.down('sm')]: {
-	// 		fontSize: '1.2rem',
-	// 	},
-	// 	[theme.breakpoints.up('sm')]: {
-	// 		fontSize: '1.5rem',
-	// 	},
-	// 	[theme.breakpoints.up('md')]: {
-	// 		fontSize: '2.4rem',
-	// 	},
-	// };
-
-
+	theme = responsiveFontSizes(theme);
 
 	return theme;
 };
-
 
 export default getTheme;

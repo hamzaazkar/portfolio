@@ -5,6 +5,7 @@ import { About } from '../about';
 import { Footer } from '../footer';
 import { Header } from '../header';
 import { HeroBanner } from '../heroBanner';
+import { Projects } from '../projects';
 import { Skills } from '../skills';
 
 export function Home() {
@@ -15,6 +16,7 @@ export function Home() {
 			<MovingTextBar />
 			<About />
 			<Skills />
+			<Projects />
 			<Footer />
 			<MovingTextBar />
 		</Stack>
