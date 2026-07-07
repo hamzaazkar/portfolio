@@ -25,7 +25,17 @@ const getTheme = () => {
 		typography: {
 			fontFamily: tokens.fontFamily,
 			h1: {
+				fontFamily: tokens.fontFamilyHeading,
 				fontSize: '35px',
+			},
+			h2: {
+				fontFamily: tokens.fontFamilyHeading,
+			},
+			h3: {
+				fontFamily: tokens.fontFamilyHeading,
+			},
+			h4: {
+				fontFamily: tokens.fontFamilyHeading,
 			},
 		},
 		components: {

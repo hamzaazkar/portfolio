@@ -2,9 +2,8 @@ import { CopyrightRounded, GitHub, LinkedIn } from '@mui/icons-material';
 import { Button, ButtonBase, Stack, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
 import { SOCIAL_LINKS } from '../../constants/links';
-
-const MotionButton = motion(Button);
-const MotionButtonBase = motion(ButtonBase);
+import { MagneticButton } from '../cursor/MagneticButton';
+import { tokens } from '../../theme/tokens';
 
 export const Footer = () => {
 	return (
@@ -14,8 +13,8 @@ export const Footer = () => {
 			sx={{
 				margin: 0,
 				padding: 10,
-				borderTopLeftRadius: '150px',
-				borderTopRightRadius: '150px',
+				borderTop: '1px solid',
+				borderColor: tokens.colors.border,
 				backgroundColor: 'background.paper',
 			}}
 		>
@@ -25,8 +24,22 @@ export const Footer = () => {
 				viewport={{ once: true, amount: 0.3 }}
 				transition={{ duration: 0.5 }}
 			>
-				<Typography textAlign='center' variant='h1' fontWeight={900}>Let's</Typography>
-				<Typography textAlign='center' variant='h1' fontWeight={900}>Connect</Typography>
+				<Typography
+					textAlign='center'
+					variant='h1'
+					fontWeight={600}
+					sx={{ fontFamily: tokens.fontFamilyHeading, letterSpacing: '-0.03em' }}
+				>
+					Let's
+				</Typography>
+				<Typography
+					textAlign='center'
+					variant='h1'
+					fontWeight={600}
+					sx={{ fontFamily: tokens.fontFamilyHeading, letterSpacing: '-0.03em', color: tokens.colors.textSecondary }}
+				>
+					Connect
+				</Typography>
 			</motion.div>
 
 			<Stack
@@ -36,37 +49,39 @@ export const Footer = () => {
 				paddingTop={5}
 				gap={2}
 			>
-				<a
-					target='_blank'
-					rel='noreferrer'
-					style={{ color: 'white' }}
-					href={SOCIAL_LINKS.whatsapp}
-				>
-					<MotionButton
-						variant='outlined'
-						color='inherit'
-						whileHover={{ scale: 1.05 }}
-						whileTap={{ scale: 0.97 }}
-						sx={{ color: 'white', fontSize: '22px', p: 2, height: '50px' }}
+				<MagneticButton>
+					<a
+						target='_blank'
+						rel='noreferrer'
+						data-cursor='hover'
+						style={{ color: tokens.colors.textPrimary }}
+						href={SOCIAL_LINKS.whatsapp}
 					>
-						Whatsapp me
-					</MotionButton>
-				</a>
+						<Button
+							variant='outlined'
+							color='inherit'
+							sx={{ color: tokens.colors.textPrimary, borderColor: tokens.colors.border, fontSize: '18px', p: 2, height: '50px' }}
+						>
+							Whatsapp me
+						</Button>
+					</a>
+				</MagneticButton>
 
-				<a
-					href={SOCIAL_LINKS.email}
-					style={{ color: 'white' }}
-				>
-					<MotionButton
-						variant='outlined'
-						color='inherit'
-						whileHover={{ scale: 1.05 }}
-						whileTap={{ scale: 0.97 }}
-						sx={{ color: 'white', fontSize: '22px', p: 2, height: '50px' }}
+				<MagneticButton>
+					<a
+						href={SOCIAL_LINKS.email}
+						data-cursor='hover'
+						style={{ color: tokens.colors.textPrimary }}
 					>
-						Mail me
-					</MotionButton>
-				</a>
+						<Button
+							variant='outlined'
+							color='inherit'
+							sx={{ color: tokens.colors.textPrimary, borderColor: tokens.colors.border, fontSize: '18px', p: 2, height: '50px' }}
+						>
+							Mail me
+						</Button>
+					</a>
+				</MagneticButton>
 			</Stack>
 
 			<Stack
@@ -75,71 +90,73 @@ export const Footer = () => {
 				paddingTop={5}
 				gap={2}
 			>
-				<a
-					href={SOCIAL_LINKS.linkedin}
-					target='_blank'
-					rel='noreferrer'
-					style={{ color: 'white' }}
-				>
-					<MotionButtonBase
-						color='inherit'
-						whileHover={{ scale: 1.05 }}
-						whileTap={{ scale: 0.97 }}
-						sx={{
-							display: 'flex',
-							justifyContent: 'space-between',
-							width: '200px',
-							color: 'white',
-							fontSize: '24px',
-							p: 0.5,
-							borderTop: 'solid 1px grey',
-							'&:hover': {
-								borderTop: 'solid 1px',
-								borderTopColor: 'primary.main',
-							},
-						}}
+				<MagneticButton>
+					<a
+						href={SOCIAL_LINKS.linkedin}
+						target='_blank'
+						rel='noreferrer'
+						data-cursor='hover'
+						style={{ color: tokens.colors.textPrimary }}
 					>
-						<Typography noWrap>
-							Linkedin
-						</Typography>
+						<ButtonBase
+							color='inherit'
+							sx={{
+								display: 'flex',
+								justifyContent: 'space-between',
+								width: '200px',
+								color: tokens.colors.textPrimary,
+								fontSize: '22px',
+								p: 0.5,
+								borderTop: '1px solid',
+								borderColor: tokens.colors.border,
+								'&:hover': {
+									borderColor: tokens.colors.textPrimary,
+								},
+							}}
+						>
+							<Typography noWrap>
+								Linkedin
+							</Typography>
 
-						<LinkedIn />
+							<LinkedIn />
 
-					</MotionButtonBase>
-				</a>
+						</ButtonBase>
+					</a>
+				</MagneticButton>
 
-				<a
-					href={SOCIAL_LINKS.github}
-					target='_blank'
-					rel='noreferrer'
-					style={{ color: 'white' }}
-				>
-					<MotionButtonBase
-						color='inherit'
-						whileHover={{ scale: 1.05 }}
-						whileTap={{ scale: 0.97 }}
-						sx={{
-							display: 'flex',
-							justifyContent: 'space-between',
-							width: '200px',
-							color: 'white',
-							fontSize: '24px',
-							p: 0.5,
-							borderTop: 'solid 1px grey',
-							'&:hover': {
-								borderTop: 'solid 1px',
-								borderTopColor: 'primary.main',
-							},
-						}}
+				<MagneticButton>
+					<a
+						href={SOCIAL_LINKS.github}
+						target='_blank'
+						rel='noreferrer'
+						data-cursor='hover'
+						style={{ color: tokens.colors.textPrimary }}
 					>
-						<Typography>
-							Github
-						</Typography>
+						<ButtonBase
+							color='inherit'
+							sx={{
+								display: 'flex',
+								justifyContent: 'space-between',
+								width: '200px',
+								color: tokens.colors.textPrimary,
+								fontSize: '22px',
+								p: 0.5,
+								borderTop: '1px solid',
+								borderColor: tokens.colors.border,
+								'&:hover': {
+									borderColor: tokens.colors.textPrimary,
+								},
+							}}
+						>
+							<Typography>
+								Github
+							</Typography>
 
-						<GitHub />
+							<GitHub />
 
-					</MotionButtonBase>
-				</a>
+						</ButtonBase>
+					</a>
+				</MagneticButton>
 			</Stack>
 
 			<Stack
@@ -149,15 +166,11 @@ export const Footer = () => {
 				paddingTop={5}
 				gap={2}
 			>
-				<Typography
-					color='grey'
-				>
+				<Typography sx={{ fontFamily: tokens.fontFamilyMono, fontSize: 11, color: tokens.colors.textTertiary }}>
 					<CopyrightRounded sx={{ fontSize: '14px' }} /> 2024 , Hamza Azkar portfolio
 				</Typography>
 
-				<Typography
-					color='grey'
-				>
+				<Typography sx={{ fontFamily: tokens.fontFamilyMono, fontSize: 11, color: tokens.colors.textTertiary }}>
 					Developed and designed by <b>.Hamza</b>
 				</Typography>
 			</Stack>

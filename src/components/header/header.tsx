@@ -1,5 +1,4 @@
 import CloseIcon from '@mui/icons-material/Close';
-import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import MenuIcon from '@mui/icons-material/Menu';
 import {
 	Box,
@@ -14,8 +13,9 @@ import {
 } from '@mui/material';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { SOCIAL_LINKS } from '../../constants/links';
+import { MagneticButton } from '../cursor/MagneticButton';
 import { scrollToSection } from '../../utils/scrollToSection';
+import { tokens } from '../../theme/tokens';
 
 const NAV_ITEMS = [
 	{ label: 'Home', id: 'home' },
@@ -25,7 +25,13 @@ const NAV_ITEMS = [
 	{ label: 'Contact', id: 'contact' },
 ];
 
-const MotionButton = motion(Button);
+const navLinkSx = {
+	fontFamily: tokens.fontFamilyMono,
+	fontSize: '12px',
+	letterSpacing: '0.04em',
+	textTransform: 'uppercase' as const,
+	color: tokens.colors.textSecondary,
+};
 
 export function Header() {
 	const theme = useTheme();
@@ -47,10 +53,10 @@ export function Header() {
 				position: 'sticky',
 				top: 0,
 				zIndex: theme.zIndex.appBar,
-				backdropFilter: 'blur(8px)',
-				backgroundColor: 'rgba(20, 20, 20, 0.8)',
+				backdropFilter: 'blur(10px)',
+				background: 'linear-gradient(180deg, rgba(10,10,11,0.85), rgba(10,10,11,0.4))',
 				borderBottom: '1px solid',
-				borderColor: 'divider',
+				borderColor: tokens.colors.border,
 			}}
 		>
 			<Container maxWidth='xl'>
@@ -60,38 +66,54 @@ export function Header() {
 					alignItems='center'
 					sx={{ padding: 1.3 }}
 				>
-					<Typography
-						variant='h4'
-						fontWeight='900'
-						noWrap
-						sx={{ cursor: 'pointer' }}
-						onClick={() => handleNavClick('home')}
-					>
-						<span style={{ color: theme.palette.primary.main }}>.</span>
-						Hamza Azkar
-					</Typography>
+					<MagneticButton>
+						<Typography
+							data-cursor='hover'
+							variant='h4'
+							fontWeight={600}
+							noWrap
+							sx={{ cursor: 'pointer', letterSpacing: '-0.01em' }}
+							onClick={() => handleNavClick('home')}
+						>
+							Hamza Azkar<span style={{ color: tokens.colors.textTertiary }}>.</span>
+						</Typography>
+					</MagneticButton>
 
 					{!isMobile && (
-						<Stack direction='row' spacing={1} alignItems='center'>
+						<Stack direction='row' spacing={4} alignItems='center'>
 							{NAV_ITEMS.map((item) => (
-								<MotionButton
+								<Box
 									key={item.id}
-									color='inherit'
-									whileHover={{ y: -2 }}
-									whileTap={{ scale: 0.95 }}
+									component='button'
+									data-cursor='hover'
 									onClick={() => handleNavClick(item.id)}
+									sx={{
+										...navLinkSx,
+										background: 'none',
+										border: 'none',
+										cursor: 'pointer',
+										padding: 0,
+										'&:hover': { color: tokens.colors.textPrimary },
+									}}
 								>
 									{item.label}
-								</MotionButton>
+								</Box>
 							))}
-							<IconButton
-								component='a'
-								href={SOCIAL_LINKS.email}
-								color='inherit'
-								aria-label='Email me'
-							>
-								<MailOutlineIcon />
-							</IconButton>
+							<MagneticButton>
+								<Button
+									data-cursor='hover'
+									variant='outlined'
+									color='inherit'
+									onClick={() => handleNavClick('contact')}
+									sx={{
+										...navLinkSx,
+										borderColor: tokens.colors.border,
+										padding: '8px 18px',
+									}}
+								>
+									Contact
+								</Button>
+							</MagneticButton>
 						</Stack>
 					)}
 
@@ -112,7 +134,7 @@ export function Header() {
 				open={mobileOpen}
 				onClose={() => setMobileOpen(false)}
 			>
-				<Stack sx={{ width: 240, height: '100%', padding: 2 }} spacing={1}>
+				<Stack sx={{ width: 240, height: '100%', padding: 2, backgroundColor: tokens.colors.background }} spacing={1}>
 					<Stack direction='row' justifyContent='flex-end'>
 						<IconButton
 							aria-label='Close navigation menu'
@@ -131,7 +153,7 @@ export function Header() {
 							<Button
 								fullWidth
 								color='inherit'
-								sx={{ justifyContent: 'flex-start' }}
+								sx={{ justifyContent: 'flex-start', ...navLinkSx }}
 								onClick={() => handleNavClick(item.id)}
 							>
 								{item.label}

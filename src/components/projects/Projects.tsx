@@ -1,4 +1,5 @@
-import { Container, Grid, Typography } from '@mui/material';
+import { Container } from '@mui/material';
+import { SectionHeading } from '../common/SectionHeading';
 import { ProjectCard } from './ProjectCard';
 import { projects } from './projectsData';
 
@@ -9,23 +10,11 @@ export function Projects() {
 			maxWidth='xl'
 			sx={{ marginTop: 8, marginBottom: 16 }}
 		>
-			<Typography
-				variant='h2'
-				fontWeight='700'
-				noWrap
-				sx={{ mb: 6 }}
-			>
-				<span style={{ color: '#abf129' }}>.</span>
-				Projects
-			</Typography>
+			<SectionHeading eyebrow='Selected Work' title='Projects' />
 
-			<Grid container spacing={4}>
-				{projects.map((project, i) => (
-					<Grid item xs={12} sm={6} md={4} key={project.id}>
-						<ProjectCard project={project} index={i} />
-					</Grid>
-				))}
-			</Grid>
+			{projects.map((project, i) => (
+				<ProjectCard key={project.id} project={project} index={i} />
+			))}
 		</Container>
 	);
 }

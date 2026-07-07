@@ -1,11 +1,14 @@
 export const tokens = {
 	colors: {
-		accent: '#abf129',
-		accentDark: '#8fce1a',
-		background: '#141414',
-		backgroundPaper: '#1c1c1c',
-		textPrimary: '#f5f5f5',
-		textSecondary: '#b3b3b3',
+		accent: '#ededec',
+		accentDark: '#c7c7c5',
+		background: '#0a0a0b',
+		backgroundPaper: '#121214',
+		textPrimary: '#ededec',
+		textSecondary: '#8a8a8d',
+		textTertiary: '#5a5a5d',
+		border: 'rgba(255,255,255,0.11)',
+		status: '#5ce08a',
 	},
 	radius: {
 		sm: 8,
@@ -13,5 +16,15 @@ export const tokens = {
 		lg: 24,
 		pill: 999,
 	},
-	fontFamily: 'Inter, system-ui, Avenir, Helvetica, Arial, sans-serif',
+	fontFamily: "'Hanken Grotesk', system-ui, Avenir, Helvetica, Arial, sans-serif",
+	fontFamilyHeading: "'Space Grotesk', system-ui, sans-serif",
+	fontFamilyMono: "'JetBrains Mono', ui-monospace, monospace",
+};
+
+export const monoLabelSx = {
+	fontFamily: tokens.fontFamilyMono,
+	fontSize: '12px',
+	letterSpacing: '0.04em',
+	color: tokens.colors.textSecondary,
+	textTransform: 'uppercase' as const,
 };

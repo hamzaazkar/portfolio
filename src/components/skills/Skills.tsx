@@ -11,6 +11,7 @@ import { NextSvg } from '../../assets/NextSvg';
 import { ReactSvg } from '../../assets/ReactSvg';
 import { ReduxSvg } from '../../assets/ReduxSvg';
 import { TypescriptSvg } from '../../assets/TypescriptSvg';
+import { SectionHeading } from '../common/SectionHeading';
 import { tokens } from '../../theme/tokens';
 
 const buttonCss = {
@@ -57,14 +58,7 @@ export const Skills = () => {
 				id='skills'
 				sx={{ marginTop: 8, marginBottom: 16 }}
 			>
-				<Typography
-					variant='h2'
-					fontWeight='700'
-					noWrap
-				>
-					<span style={{ color: tokens.colors.accent }}>.</span>
-					Skills
-				</Typography>
+				<SectionHeading eyebrow='Skills' title='Skills' />
 
 				<Stack
 					direction='row'
@@ -89,7 +83,7 @@ export const Skills = () => {
 									sx={{
 										...buttonCss,
 										border: '1px solid',
-										borderColor: 'grey.700',
+										borderColor: tokens.colors.border,
 										display: 'inline-flex',
 									}}
 								>

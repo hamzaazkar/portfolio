@@ -18,13 +18,13 @@ import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { useState } from 'react';
 import Typewriter from 'typewriter-effect';
 import myPic from '../../assets/myPic.jpg';
+import { MagneticButton } from '../cursor/MagneticButton';
 import { SOCIAL_LINKS } from '../../constants/links';
 import { usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion';
 import { SECTION_IDS, scrollToSection } from '../../utils/scrollToSection';
+import { tokens } from '../../theme/tokens';
 
 import cv from './cv-hamza.pdf';
-
-const MotionButton = motion(Button);
 
 const heroVariants = {
 	hidden: {},
@@ -86,8 +86,8 @@ export function HeroBanner() {
 						<motion.div variants={itemVariants}>
 							<Typography
 								variant='h1'
-								fontWeight='800'
-								sx={{ fontSize: { xs: '48px', sm: '72px', md: '96px' }, lineHeight: 1.05 }}
+								fontWeight={600}
+								sx={{ fontSize: { xs: '48px', sm: '72px', md: '96px' }, lineHeight: 1.02, letterSpacing: '-0.03em' }}
 							>
 								FRONTEND
 							</Typography>
@@ -96,8 +96,8 @@ export function HeroBanner() {
 						<motion.div variants={itemVariants}>
 							<Typography
 								variant='h1'
-								fontWeight='800'
-								sx={{ fontSize: { xs: '48px', sm: '72px', md: '96px' }, lineHeight: 1.05 }}
+								fontWeight={600}
+								sx={{ fontSize: { xs: '48px', sm: '72px', md: '96px' }, lineHeight: 1.02, letterSpacing: '-0.03em', color: tokens.colors.textSecondary }}
 							>
 								<Typewriter
 									options={{
@@ -112,8 +112,8 @@ export function HeroBanner() {
 						<motion.div variants={itemVariants}>
 							<Typography
 								variant='h1'
-								fontWeight='800'
-								sx={{ fontSize: { xs: '48px', sm: '72px', md: '96px' }, lineHeight: 1.05 }}
+								fontWeight={600}
+								sx={{ fontSize: { xs: '48px', sm: '72px', md: '96px' }, lineHeight: 1.02, letterSpacing: '-0.03em' }}
 							>
 								& DESIGNER
 								<motion.span
@@ -121,14 +121,14 @@ export function HeroBanner() {
 									animate={prefersReducedMotion ? undefined : { y: [0, -8, 0] }}
 									transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
 								>
-									<CircleIcon fontSize='large' />
+									<CircleIcon fontSize='large' sx={{ color: tokens.colors.textTertiary }} />
 								</motion.span>
 								<motion.span
 									style={{ display: 'inline-block' }}
 									animate={prefersReducedMotion ? undefined : { rotate: [0, 15, 0] }}
 									transition={{ repeat: Infinity, duration: 4, ease: 'easeInOut' }}
 								>
-									<CancelIcon fontSize='large' />
+									<CancelIcon fontSize='large' sx={{ color: tokens.colors.textTertiary }} />
 								</motion.span>
 								<motion.span
 									style={{ display: 'inline-block' }}
@@ -142,33 +142,33 @@ export function HeroBanner() {
 
 						<motion.div variants={itemVariants}>
 							<Stack direction={{ xs: 'column', sm: 'row' }} sx={{ marginTop: 5 }} spacing={3} alignItems='flex-start'>
-								<a href={SOCIAL_LINKS.email} style={{ color: 'white' }}>
-									<MotionButton
-										variant='outlined'
-										color='inherit'
-										whileHover={{ scale: 1.05 }}
-										whileTap={{ scale: 0.97 }}
-										sx={{ p: 2, borderRadius: 10 }}
-									>
-										<Typography variant='h5' fontWeight={600} noWrap>
-											CONTACT ME
-										</Typography>
-									</MotionButton>
-								</a>
+								<MagneticButton>
+									<a href={SOCIAL_LINKS.email} data-cursor='hover' style={{ color: tokens.colors.textPrimary }}>
+										<Button
+											variant='outlined'
+											color='inherit'
+											sx={{ p: 2, borderColor: tokens.colors.border }}
+										>
+											<Typography variant='h5' fontWeight={600} noWrap sx={{ fontFamily: tokens.fontFamilyHeading }}>
+												CONTACT ME
+											</Typography>
+										</Button>
+									</a>
+								</MagneticButton>
 
-								<a href={cv} download='cv-hamza' target='_blank' style={{ color: 'white' }}>
-									<MotionButton
-										variant='text'
-										color='inherit'
-										whileHover={{ scale: 1.05 }}
-										whileTap={{ scale: 0.97 }}
-										sx={{ m: 2 }}
-									>
-										<Typography variant='h5' fontWeight={600} noWrap>
-											DOWNLOAD CV <span><OutboundRounded fontSize='medium' sx={{ color: 'primary.main' }} /></span>
-										</Typography>
-									</MotionButton>
-								</a>
+								<MagneticButton>
+									<a href={cv} download='cv-hamza' target='_blank' data-cursor='hover' style={{ color: tokens.colors.textPrimary }}>
+										<Button
+											variant='text'
+											color='inherit'
+											sx={{ m: 2 }}
+										>
+											<Typography variant='h5' fontWeight={600} noWrap sx={{ fontFamily: tokens.fontFamilyHeading }}>
+												DOWNLOAD CV <span><OutboundRounded fontSize='medium' sx={{ color: 'primary.main' }} /></span>
+											</Typography>
+										</Button>
+									</a>
+								</MagneticButton>
 							</Stack>
 						</motion.div>
 
@@ -177,11 +177,12 @@ export function HeroBanner() {
 								direction='row'
 								alignItems='center'
 								spacing={1}
-								sx={{ mt: 6, border: '1px solid', borderColor: 'grey.700', borderRadius: 5, width: 100, height: 50 }}
+								sx={{ mt: 6, border: '1px solid', borderColor: tokens.colors.border, borderRadius: 5, width: 100, height: 50 }}
 							>
 								<IconButton
 									color='inherit'
 									aria-label='Previous section'
+									data-cursor='hover'
 									disabled={currentIndex === 0}
 									onClick={() => goToSection(-1)}
 								>
@@ -190,6 +191,7 @@ export function HeroBanner() {
 								<IconButton
 									color='inherit'
 									aria-label='Next section'
+									data-cursor='hover'
 									disabled={currentIndex === SECTION_IDS.length - 1}
 									onClick={() => goToSection(1)}
 								>
@@ -209,7 +211,7 @@ export function HeroBanner() {
 								width: '70%',
 								height: '70%',
 								borderRadius: '50%',
-								background: 'radial-gradient(circle, rgba(171,241,41,0.35) 0%, rgba(171,241,41,0) 70%)',
+								background: 'radial-gradient(circle, rgba(237,237,236,0.14) 0%, rgba(237,237,236,0) 70%)',
 								filter: 'blur(10px)',
 								x: blobX,
 								y: blobY,
@@ -235,9 +237,9 @@ export function HeroBanner() {
 									borderRadius: '50%',
 									objectFit: 'cover',
 									objectPosition: '0 -10%',
-									filter: 'grayscale(60%)',
+									filter: 'grayscale(80%)',
 									border: '3px solid',
-									borderColor: 'primary.main',
+									borderColor: tokens.colors.border,
 								}}
 							/>
 						</motion.div>

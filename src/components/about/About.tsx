@@ -4,6 +4,8 @@ import { Container, Stack, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
 import myPic from '../../assets/myPic.jpg';
 import { SOCIAL_LINKS } from '../../constants/links';
+import { SectionHeading } from '../common/SectionHeading';
+import { tokens } from '../../theme/tokens';
 
 const MotionImg = motion.img;
 const MotionA = motion.a;
@@ -15,14 +17,7 @@ export const About = () => {
 			maxWidth='xl'
 			sx={{ marginTop: 16, marginBottom: 16 }}
 		>
-			<Typography
-				variant='h2'
-				fontWeight='700'
-				noWrap
-			>
-				<span style={{ color: '#abf129' }}>.</span>
-				About
-			</Typography>
+			<SectionHeading eyebrow='About' title='About' />
 
 			<Stack
 				direction='row'
@@ -57,9 +52,10 @@ export const About = () => {
 						href={SOCIAL_LINKS.linkedin}
 						target='_blank'
 						rel='noreferrer'
+						data-cursor='hover'
 						whileHover={{ scale: 1.15 }}
 						whileTap={{ scale: 0.95 }}
-						style={{ color: 'white' }}
+						style={{ color: tokens.colors.textPrimary }}
 					>
 						<LinkedInIcon sx={{ fontSize: '40px' }} />
 					</MotionA>
@@ -68,9 +64,10 @@ export const About = () => {
 						href={SOCIAL_LINKS.github}
 						target='_blank'
 						rel='noreferrer'
+						data-cursor='hover'
 						whileHover={{ scale: 1.15 }}
 						whileTap={{ scale: 0.95 }}
-						style={{ color: 'white' }}
+						style={{ color: tokens.colors.textPrimary }}
 					>
 						<GitHubIcon sx={{ fontSize: '40px' }} />
 					</MotionA>
@@ -116,7 +113,7 @@ export const About = () => {
 				marginTop={2}
 			>
 				Degree :{' '}
-				<span style={{ textDecoration: 'underline', color: '#abf129' }}>BSCS</span>
+				<span style={{ textDecoration: 'underline', color: tokens.colors.accent }}>BSCS</span>
 			</Typography>
 		</Container>
 	);
