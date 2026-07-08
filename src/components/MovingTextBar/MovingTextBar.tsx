@@ -1,4 +1,3 @@
-import CircleIcon from '@mui/icons-material/Circle';
 import { Typography } from '@mui/material';
 import {
 	motion,
@@ -15,6 +14,8 @@ import { tokens } from '../../theme/tokens';
 
 const BASE_SPEED = 40; // px/sec
 
+const PHRASES = ['MULTI-AGENT AI', 'FULL-STACK ENGINEERING', 'CONVERSATIONAL UI', 'DATA DASHBOARDS'];
+
 const MarqueeContent = () => (
 	<Typography
 		component='span'
@@ -22,16 +23,18 @@ const MarqueeContent = () => (
 			display: 'inline-block',
 			whiteSpace: 'nowrap',
 			fontFamily: tokens.fontFamilyHeading,
-			fontSize: 26,
+			fontSize: 22,
 			fontWeight: 500,
-			color: tokens.colors.textPrimary,
+			letterSpacing: '-0.01em',
+			color: tokens.colors.textMuted,
 		}}
 	>
-		<CircleIcon fontSize='medium' sx={{ color: tokens.colors.textTertiary, marginLeft: '20px', marginRight: '20px' }} />
-		Get In Touch
-		<CircleIcon fontSize='medium' sx={{ color: tokens.colors.textTertiary, marginLeft: '20px', marginRight: '20px' }} />
-		Lets Create Something
-		<span style={{ color: tokens.colors.textSecondary, marginLeft: '5px', fontStyle: 'italic' }}>Amazing</span>
+		{PHRASES.map((phrase) => (
+			<span key={phrase}>
+				<span style={{ margin: '0 26px' }}>{phrase}</span>
+				<span style={{ color: tokens.colors.textTertiary }}>◆</span>
+			</span>
+		))}
 	</Typography>
 );
 
@@ -66,7 +69,7 @@ export const MovingTextBar = () => {
 				borderTop: `1px solid ${tokens.colors.border}`,
 				borderBottom: `1px solid ${tokens.colors.border}`,
 				margin: '-8px',
-				padding: '10px',
+				padding: '18px 0',
 				overflow: 'hidden',
 			}}
 		>

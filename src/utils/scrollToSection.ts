@@ -1,4 +1,4 @@
-export const SECTION_IDS = ['home', 'about', 'skills', 'projects', 'contact'];
+export const SECTION_IDS = ['top', 'work', 'skills', 'about', 'contact'];
 
 export function scrollToSection(id: string) {
 	const element = document.getElementById(id);

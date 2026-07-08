@@ -18,11 +18,9 @@ import { scrollToSection } from '../../utils/scrollToSection';
 import { tokens } from '../../theme/tokens';
 
 const NAV_ITEMS = [
-	{ label: 'Home', id: 'home' },
-	{ label: 'About', id: 'about' },
+	{ label: 'Work', id: 'work' },
 	{ label: 'Skills', id: 'skills' },
-	{ label: 'Projects', id: 'projects' },
-	{ label: 'Contact', id: 'contact' },
+	{ label: 'About', id: 'about' },
 ];
 
 const navLinkSx = {
@@ -72,10 +70,10 @@ export function Header() {
 							variant='h4'
 							fontWeight={600}
 							noWrap
-							sx={{ cursor: 'pointer', letterSpacing: '-0.01em' }}
-							onClick={() => handleNavClick('home')}
+							sx={{ cursor: 'pointer', letterSpacing: '-0.01em', fontFamily: tokens.fontFamilyHeading, fontSize: '16px' }}
+							onClick={() => handleNavClick('top')}
 						>
-							Hamza Azkar<span style={{ color: tokens.colors.textTertiary }}>.</span>
+							M. Hamza<span style={{ color: tokens.colors.textTertiary }}>.</span>
 						</Typography>
 					</MagneticButton>
 

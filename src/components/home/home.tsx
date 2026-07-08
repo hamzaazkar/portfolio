@@ -2,6 +2,8 @@ import { Stack } from '@mui/material';
 
 import { MovingTextBar } from '../MovingTextBar';
 import { About } from '../about';
+import { Contact } from '../contact';
+import { Experience } from '../experience';
 import { Footer } from '../footer';
 import { Header } from '../header';
 import { HeroBanner } from '../heroBanner';
@@ -14,11 +16,12 @@ export function Home() {
 			<Header />
 			<HeroBanner />
 			<MovingTextBar />
-			<About />
-			<Skills />
 			<Projects />
+			<Skills />
+			<About />
+			<Experience />
+			<Contact />
 			<Footer />
-			<MovingTextBar />
 		</Stack>
 	);
 }

@@ -1,120 +1,84 @@
-import GitHubIcon from '@mui/icons-material/GitHub';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import { Container, Stack, Typography } from '@mui/material';
+import { Box, Container, Stack, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
-import myPic from '../../assets/myPic.jpg';
-import { SOCIAL_LINKS } from '../../constants/links';
-import { SectionHeading } from '../common/SectionHeading';
 import { tokens } from '../../theme/tokens';
-
-const MotionImg = motion.img;
-const MotionA = motion.a;
 
 export const About = () => {
 	return (
-		<Container
-			id='about'
-			maxWidth='xl'
-			sx={{ marginTop: 16, marginBottom: 16 }}
-		>
-			<SectionHeading eyebrow='About' title='About' />
-
-			<Stack
-				direction='row'
-				columnGap='40px'
-				marginTop='40px'
-				marginBottom='40px'
-				alignItems='center'
-			>
-				<MotionImg
-					src={myPic}
-					alt='myPic'
-					width={150}
-					height={150}
-					initial={{ opacity: 0, x: -30 }}
-					whileInView={{ opacity: 1, x: 0 }}
-					viewport={{ once: true, amount: 0.3 }}
-					transition={{ duration: 0.5 }}
-					style={{
-						borderRadius: '100px',
-						filter: 'grayscale(100%)',
-						objectFit: 'cover',
-						objectPosition: '0 -10%'
-					}}
-				/>
-
-				<Stack
-					direction='row'
-					alignItems='center'
-					columnGap='10px'
-				>
-					<MotionA
-						href={SOCIAL_LINKS.linkedin}
-						target='_blank'
-						rel='noreferrer'
-						data-cursor='hover'
-						whileHover={{ scale: 1.15 }}
-						whileTap={{ scale: 0.95 }}
-						style={{ color: tokens.colors.textPrimary }}
+		<Container id='about' maxWidth='xl' sx={{ py: { xs: 8, md: 10 }, borderTop: '1px solid', borderColor: tokens.colors.border }}>
+			<Stack spacing={7} sx={{ maxWidth: 1400 }}>
+				<Stack direction={{ xs: 'column', md: 'row' }} spacing={3} justifyContent='space-between' alignItems='flex-start'>
+					<Typography
+						component={motion.span}
+						initial={{ opacity: 0, y: 20 }}
+						whileInView={{ opacity: 1, y: 0 }}
+						viewport={{ once: true, amount: 0.3 }}
+						sx={{ fontFamily: tokens.fontFamilyMono, fontSize: 12, color: tokens.colors.textTertiary }}
 					>
-						<LinkedInIcon sx={{ fontSize: '40px' }} />
-					</MotionA>
-
-					<MotionA
-						href={SOCIAL_LINKS.github}
-						target='_blank'
-						rel='noreferrer'
-						data-cursor='hover'
-						whileHover={{ scale: 1.15 }}
-						whileTap={{ scale: 0.95 }}
-						style={{ color: tokens.colors.textPrimary }}
+						(ABOUT)
+					</Typography>
+					<Typography
+						component={motion.h2}
+						initial={{ opacity: 0, y: 20 }}
+						whileInView={{ opacity: 1, y: 0 }}
+						viewport={{ once: true, amount: 0.3 }}
+						transition={{ delay: 0.1 }}
+						sx={{
+							flex: 1,
+							minWidth: 280,
+							maxWidth: 900,
+							fontFamily: tokens.fontFamilyHeading,
+							fontWeight: 500,
+							fontSize: { xs: '26px', md: '46px' },
+							lineHeight: 1.22,
+							letterSpacing: '-0.02em',
+						}}
 					>
-						<GitHubIcon sx={{ fontSize: '40px' }} />
-					</MotionA>
-
+						I build the layer between{' '}
+						<Box component='span' sx={{ color: tokens.colors.textTertiary }}>
+							complex systems and the people who need answers from them
+						</Box>{' '}
+						— bridging AI agents, production data, and interfaces that feel effortless.
+					</Typography>
 				</Stack>
 
-			</Stack>
-
-			<Stack
-				direction={{ xs: 'column', sm: 'row' }}
-				columnGap='40px'
-				marginTop='40px'
-				marginBottom='40px'
-				alignItems='center'
-				component={motion.div}
-				initial={{ opacity: 0, y: 30 }}
-				whileInView={{ opacity: 1, y: 0 }}
-				viewport={{ once: true, amount: 0.3 }}
-				transition={{ duration: 0.5, delay: 0.15 }}
-			>
-				<Typography
-					variant='h5'
-					fontWeight='500'
-					lineHeight={2}
+				<Stack
+					direction={{ xs: 'column', sm: 'row' }}
+					spacing={4}
+					sx={{ borderTop: '1px solid', borderColor: tokens.colors.border, pt: 5 }}
 				>
-					Hey ! i’m Hamza , 26 years old from Pakistan .An accomplished developer interested in web design and combining the art of design with the art of programming !
-				</Typography>
-
-				<Typography
-					variant='h5'
-					fontWeight='500'
-					lineHeight={2}
-				>
-					familiar with designing and implementing user friendly web applications using Html Css React and Next.js .Ability to create a full web pages design using Figma then transform it into real website
-				</Typography>
+					<Typography
+						component={motion.p}
+						initial={{ opacity: 0, y: 20 }}
+						whileInView={{ opacity: 1, y: 0 }}
+						viewport={{ once: true, amount: 0.3 }}
+						sx={{ flex: 1, minWidth: 220, fontSize: 15, lineHeight: 1.65, color: tokens.colors.textSecondary }}
+					>
+						My work sits at the intersection of applied AI and full-stack engineering. Recently I architected a multi-agent system that lets non-technical users interrogate enterprise data conversationally.
+					</Typography>
+					<Typography
+						component={motion.p}
+						initial={{ opacity: 0, y: 20 }}
+						whileInView={{ opacity: 1, y: 0 }}
+						viewport={{ once: true, amount: 0.3 }}
+						transition={{ delay: 0.08 }}
+						sx={{ flex: 1, minWidth: 220, fontSize: 15, lineHeight: 1.65, color: tokens.colors.textSecondary }}
+					>
+						I care about the details that make software trustworthy in production — access controls, data integrity, and interfaces that reduce cognitive load rather than add to it.
+					</Typography>
+					<Stack
+						component={motion.div}
+						initial={{ opacity: 0, y: 20 }}
+						whileInView={{ opacity: 1, y: 0 }}
+						viewport={{ once: true, amount: 0.3 }}
+						transition={{ delay: 0.16 }}
+						sx={{ flex: 1, minWidth: 220, fontFamily: tokens.fontFamilyMono, fontSize: 12, color: tokens.colors.textSecondary, lineHeight: 2 }}
+					>
+						<span>ROLE — SOFTWARE ENGINEER</span>
+						<span>FOR — SENIOR ROLES · FREELANCE</span>
+						<span>ALSO — SPEAKING · CONFERENCES</span>
+					</Stack>
+				</Stack>
 			</Stack>
-
-			<Typography
-				variant='h3'
-				fontWeight='700'
-				noWrap
-				fontStyle='italic'
-				marginTop={2}
-			>
-				Degree :{' '}
-				<span style={{ textDecoration: 'underline', color: tokens.colors.accent }}>BSCS</span>
-			</Typography>
 		</Container>
 	);
 };

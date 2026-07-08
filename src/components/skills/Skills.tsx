@@ -1,150 +1,75 @@
-import CircleIcon from '@mui/icons-material/Circle';
-import { Container, Stack, Typography } from '@mui/material';
+import { Box, Container, Stack, Typography } from '@mui/material';
 import { motion } from 'framer-motion';
-
-import { FigmaSvg } from '../../assets/FigmaSvg';
-import { HtmlSvg } from '../../assets/HtmlSvg';
-import { JavaScriptSvg } from '../../assets/JavaScriptSvg';
-import { MuiSvg } from '../../assets/MuiSvg';
-import { MySqlSvg } from '../../assets/MySqlSvg';
-import { NextSvg } from '../../assets/NextSvg';
-import { ReactSvg } from '../../assets/ReactSvg';
-import { ReduxSvg } from '../../assets/ReduxSvg';
-import { TypescriptSvg } from '../../assets/TypescriptSvg';
-import { SectionHeading } from '../common/SectionHeading';
+import { RevealDivider } from '../common/RevealDivider';
 import { tokens } from '../../theme/tokens';
 
-const buttonCss = {
-	p: '5px 20px 5px 20px ',
-	borderRadius: 10,
-	margin: 1,
-	'&:hover': {
-		backgroundColor: 'primary.main',
-		color: 'black',
-		borderColor: 'black',
-		boxShadow: 'none',
+const COLUMNS = [
+	{
+		index: '01',
+		label: 'AI & AGENTS',
+		items: ['Multi-agent architecture', 'Google ADK', 'CopilotKit', 'Conversational data access', 'LLM tool orchestration'],
 	},
-};
-
-const SkillsArray = ['html', 'CSS', 'javaScript', 'Nodejs', 'Mysql', 'Postgres', 'React', 'Redux', 'Material-UI', 'Typescript', 'Figma'];
-
-const techIcons = [
-	<HtmlSvg key='html' />,
-	<JavaScriptSvg key='js' />,
-	<ReactSvg key='react' />,
-	<NextSvg key='next' />,
-	<MySqlSvg key='mysql' />,
-	<FigmaSvg key='figma' />,
-	<ReduxSvg key='redux' />,
-	<MuiSvg key='mui' />,
-	<TypescriptSvg key='ts' />,
+	{
+		index: '02',
+		label: 'FRONTEND',
+		items: ['React', 'Next.js', 'TypeScript', 'Chart.js · Recharts', 'Data visualization'],
+	},
+	{
+		index: '03',
+		label: 'BACKEND',
+		items: ['Python', 'API & service design', 'Database CRUD layers', 'System integration', 'Access & data integrity'],
+	},
 ];
-
-const containerVariants = {
-	hidden: {},
-	visible: { transition: { staggerChildren: 0.08 } },
-};
-
-const itemVariants = {
-	hidden: { opacity: 0, y: 20 },
-	visible: { opacity: 1, y: 0 },
-};
 
 export const Skills = () => {
 	return (
-		<>
-			<Container
-				maxWidth='xl'
-				id='skills'
-				sx={{ marginTop: 8, marginBottom: 16 }}
-			>
-				<SectionHeading eyebrow='Skills' title='Skills' />
-
-				<Stack
-					direction='row'
-					alignItems='center'
-					component={motion.div}
-					initial='hidden'
-					whileInView='visible'
-					viewport={{ once: true, amount: 0.2 }}
-					variants={containerVariants}
-					sx={{ marginTop: 8, marginBottom: 8, maxWidth: '800px', flexWrap: 'wrap' }}
-				>
-					{SkillsArray.map((row, i) => (
-						<motion.div variants={itemVariants} key={i}>
-							<motion.button
-								whileHover={{ scale: 1.05 }}
-								whileTap={{ scale: 0.95 }}
-								style={{ all: 'unset', cursor: 'pointer' }}
-							>
-								<Stack
-									component='span'
-									direction='row'
-									sx={{
-										...buttonCss,
-										border: '1px solid',
-										borderColor: tokens.colors.border,
-										display: 'inline-flex',
-									}}
-								>
-									<Typography
-										variant='h6'
-										fontWeight={500}
-									>
-										{row}
-									</Typography>
-								</Stack>
-							</motion.button>
-						</motion.div>
-					))}
-
-				</Stack>
-
+		<Container id='skills' maxWidth='xl' sx={{ py: { xs: 8, md: 10 } }}>
+			<Stack direction='row' alignItems='baseline' justifyContent='space-between' sx={{ mb: 3 }}>
 				<Typography
-					fontSize={26}
-					fontWeight={200}
+					variant='h2'
+					sx={{ fontFamily: tokens.fontFamilyHeading, fontWeight: 600, fontSize: { xs: '30px', md: '52px' }, letterSpacing: '-0.03em' }}
 				>
-					frontend
-					<span>
-						<CircleIcon
-							fontSize='small'
-							sx={{ color: 'primary.main', marginLeft: 1, marginRight: 1 }}
-						/>
-					</span>
-					web design
-					<span>
-						<CircleIcon
-							fontSize='small'
-							sx={{ color: 'primary.main', marginLeft: 1, marginRight: 1 }}
-						/>
-					</span>
-					backend
+					Capabilities
 				</Typography>
-			</Container>
+				<Typography sx={{ fontFamily: tokens.fontFamilyMono, fontSize: 12, color: tokens.colors.textTertiary }}>
+					WHAT I BUILD WITH
+				</Typography>
+			</Stack>
+			<Box sx={{ mb: 4 }}>
+				<RevealDivider />
+			</Box>
 
-			<Stack
-				direction='row'
-				alignItems='center'
-				component={motion.div}
-				initial='hidden'
-				whileInView='visible'
-				viewport={{ once: true, amount: 0.2 }}
-				variants={containerVariants}
-				rowGap={5}
-				gap={3}
-				sx={{ margin: 8, flexWrap: 'wrap', justifyContent: 'space-between' }}
-			>
-				{techIcons.map((icon) => (
-					<motion.div
-						key={icon.key}
-						variants={itemVariants}
-						whileHover={{ scale: 1.3 }}
-						transition={{ type: 'spring', stiffness: 300 }}
+			<Stack direction={{ xs: 'column', sm: 'row' }} sx={{ flexWrap: 'wrap' }}>
+				{COLUMNS.map((column, i) => (
+					<Box
+						key={column.label}
+						component={motion.div}
+						initial={{ opacity: 0, y: 20 }}
+						whileInView={{ opacity: 1, y: 0 }}
+						viewport={{ once: true, amount: 0.3 }}
+						transition={{ duration: 0.5, delay: i * 0.1 }}
+						sx={{
+							flex: 1,
+							minWidth: 220,
+							p: { xs: 0, sm: i === 0 ? '32px 28px 32px 0' : '32px 28px' },
+							pt: { xs: 4, sm: '32px' },
+							pb: 4,
+							borderBottom: '1px solid',
+							borderLeft: { xs: 'none', sm: i > 0 ? '1px solid' : 'none' },
+							borderColor: tokens.colors.border,
+						}}
 					>
-						{icon}
-					</motion.div>
+						<Typography sx={{ fontFamily: tokens.fontFamilyMono, fontSize: 12, color: tokens.colors.textTertiary, mb: 2.25 }}>
+							{column.index} / {column.label}
+						</Typography>
+						<Stack spacing={1.5} sx={{ fontSize: 18, color: '#dcdcdd' }}>
+							{column.items.map((item) => (
+								<span key={item}>{item}</span>
+							))}
+						</Stack>
+					</Box>
 				))}
 			</Stack>
-		</>
+		</Container>
 	);
 };

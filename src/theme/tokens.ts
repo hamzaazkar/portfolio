@@ -7,6 +7,7 @@ export const tokens = {
 		textPrimary: '#ededec',
 		textSecondary: '#8a8a8d',
 		textTertiary: '#5a5a5d',
+		textMuted: '#3a3a3d',
 		border: 'rgba(255,255,255,0.11)',
 		status: '#5ce08a',
 	},
